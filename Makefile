@@ -44,6 +44,12 @@ postgres-exec:
 postgres-psql:
 	cd ${POSTGRES} && docker exec -it -u postgres postgres_postgres_1 psql
 
+postgres-dump:
+	cd ${POSTGRES} && docker exec -it -u postgres postgres_postgres_1 pg_dumpall -c > dumps/dump-$(shell date --iso=seconds).sql
+
+postgres-restore-backup: ## WIP
+	cd ${POSTGRES}/dumps && cat $(dump) | docker exec -i -u postgres postgres_postgres_1 psql
+
 # mongodb targets
 mongodb-up:
 	$(MONGO_CMD) up
