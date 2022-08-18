@@ -33,10 +33,5 @@ explain analyze select * from materia;
 --  Execution time: 0.008 ms
 -- (3 rows)
 
-CREATE TABLE IF NOT EXISTS empleado (
-    legajo integer,
-    nombre varchar(30),
-    sueldo float
-);
 
 
